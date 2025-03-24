@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Example</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <label>First Name: <input type="text" id="firstName"></label>
+        <span id="firstNameError" class="error"></span><br><br>
+
+        <label>Last Name: <input type="text" id="lastName"></label>
+        <span id="lastNameError" class="error"></span><br><br>
+
+        <label>Mobile Number: <input type="text" id="mobile"></label>
+        <span id="mobileError" class="error"></span><br><br>
+
+        <label>State: <input type="text" id="state"></label>
+        <span id="stateError" class="error"></span><br><br>
+
+        <label>City: <input type="text" id="city"></label>
+        <span id="cityError" class="error"></span><br><br>
+
+        <label>Gender: 
+            <select id="gender">
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </label>
+        <span id="genderError" class="error"></span><br><br>
+
+        <label>Email: <input type="email" id="email"></label>
+        <span id="emailError" class="error"></span><br><br>
+
+        <label>Password: <input type="password" id="password"></label>
+        <span id="passwordError" class="error"></span><br><br>
+
+        <label>Confirm Password: <input type="password" id="confirmPassword"></label>
+        <span id="confirmPasswordError" class="error"></span><br><br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Reset errors
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+            // Validate First Name
+            const firstName = document.getElementById('firstName').value.trim();
+            if (!/^[a-zA-Z]+$/.test(firstName)) {
+                document.getElementById('firstNameError').textContent = "Only letters allowed.";
+                isValid = false;
+            }
+
+            // Validate Last Name
+            const lastName = document.getElementById('lastName').value.trim();
+            if (!/^[a-zA-Z]+$/.test(lastName)) {
+                document.getElementById('lastNameError').textContent = "Only letters allowed.";
+                isValid = false;
+            }
+
+            // Validate Mobile Number
+            const mobile = document.getElementById('mobile').value.trim();
+            if (!/^\d{10}$/.test(mobile)) {
+                document.getElementById('mobileError').textContent = "Must be 10 digits.";
+                isValid = false;
+            }
+
+            // Validate State
+            const state = document.getElementById('state').value.trim();
+            if (state === "") {
+                document.getElementById('stateError').textContent = "State is required.";
+                isValid = false;
+            }
+
+            // Validate City
+            const city = document.getElementById('city').value.trim();
+            if (city === "") {
+                document.getElementById('cityError').textContent = "City is required.";
+                isValid = false;
+            }
+
+            // Validate Gender
+            const gender = document.getElementById('gender').value;
+            if (gender === "") {
+                document.getElementById('genderError').textContent = "Please select gender.";
+                isValid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email').value.trim();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').textContent = "Invalid email format.";
+                isValid = false;
+            }
+
+            // Validate Password
+            const password = document.getElementById('password').value.trim();
+            if (password.length < 8) {
+                document.getElementById('passwordError').textContent = "Password must be at least 8 characters.";
+                isValid = false;
+            }
+
+            // Validate Confirm Password
+            const confirmPassword = document.getElementById('confirmPassword').value.trim();
+            if (confirmPassword !== password) {
+                document.getElementById('confirmPasswordError').textContent = "Passwords do not match.";
+                isValid = false;
+            }
+
+            // If valid, show success message
+            if (isValid) {
+                alert("Form submitted successfully!");
+            }
+        }
+    </script>
+</body>
+</html>

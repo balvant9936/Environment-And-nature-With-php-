@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="citys.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+
+  <style>
+    ul {
+      list-style-type: none;
+    }
+
+    .navbar .navbar-nav>li>a,
+    .navbar .navbar-nav>.active>a {
+      color: orange;
+    }
+
+    .navbar .navbar-nav>li>a:hover,
+    .navbar .navbar-nav>li>a:focus,
+    .navbar .navbar-nav>.active>a:hover,
+    .navbar .navbar-nav>.active>a:focus {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="sticly-top">
+    <nav class="navbar fixed-top navbar-expand-lg bg-white">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="images (1).jpeg" alt="logo" class="rounded-pill" style="width: 100px;">
+
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">contact</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Here
+
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="swiper.html">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" aria-current="page">About</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="registration.html" aria-current="page">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html" aria-current="page">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </div>
+    </div>
+  </header>
+  <div class="container mt-5 py-5">
+    <form action="#" method="post" class=" py-5 mt-5 form-control shadow rounded mx-auto" id="validateForm"
+      style="width:70%; background-color: antiquewhite;">
+      <h3 class="fw-bold text-center">Registration Here</h3>
+      <div class="row p-3 g-5">
+        <div class="col-md-4">
+          <label for="text" class="form-label">First Name</label>
+          <input type="text" class="form-control" placeholder="Enter Name" id="firstName" name="firstName" onchange="validateFirstNameinput()" required>
+        </div>
+        <div class="col-md-4">
+          <label for="text" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" onchange="validatelastnameinput()" required>
+        </div>
+        <div class="col-md-4">
+          <label for="text" class="form-label">Mobile Number</label>
+          <input type="tel" class="form-control" name="mobileNumber" id="mobile" onchange="validatemobileinput()" required>
+        </div>
+      </div>
+      <div class="row p-3">
+        <div class="col-md-4">
+          <label for="text" class="form-label">State</label>
+          <select onchange="print_city('state',this.selectedIndex);" onchange="validatestsselect()" name="state" id="sts" class="form-control"
+            required></select>
+          <script language="javascript">print_state('sts')</script>
+
+        </div>
+        <div class="col-md-4">
+          <label for="text" class="form-label">City</label>
+          <select name="state" id="state" class="form-control" onchange="validatestateselect()" required></select>
+
+        </div>
+        <div class="col-md-4">
+          <p>Select Gender</p>
+          <input type="radio" id="radio" name="gender" onchange="validategender()">
+          <label for="text" class="form-label">Male</label>
+          <input type="radio" id="radio" name="gender" onchange="validategender()">
+          <label for="text" class="form-label">Female</label>
+          <input type="radio" id="radio" name="gender" onchange="validategender()">
+          <label for="text" class="form-label">Transgender</label><br>
+          <input type="radio" id="radio" name="gender" onchange="validategender()">
+          <label for="text" class="form-label">Shemale</label>
+        </div>
+      </div>
+      <div class="row p-2">
+        <div class="col-md-4">
+          <label for="text" class="form-label">Email</label>
+          <input onchange="javascript:ShowAlert();" type="email" id="email" name="email" class="form-control" onchange="validateemail()" required>
+        </div>
+        <div class="col-md-4">
+          
+          <label for="text" class="form-label">Password</label>
+          <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input type="password" id="password" name="password" class="form-control" minlength="8" onchange="validatepassword()" required>
+         
+        </div>
+        </div>
+        <div class="col-md-4">
+          <label for="text" class="form-label">Confirm password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" minlength="8" onchange="validateconfirmpassword()" required>
+        </div>
+      </div>
+      <div class="form-check mb-3">
+        <label for="terms">
+          <input type="checkbox" id="terms" name="terms" onchange="validateterms()"> I agree to the terms and
+          conditions
+        </label>
+      </div>
+      <button type="submit" class="btn btn btn-primary mt-1" id="submit">Submit</button>
+    </form>
+    <p id="errorMessage" style="color: red;"></p>
+  </div>
+  <script>
+    //  document.getElementById("validateForm").addEventListener("submit", function (event) {
+
+    // const firstName = docutment.getElementById("firstName").value.trim();
+    // const lastName = document.getElementById("lastName").value.trim();
+    // const mobile = document.getElementById("moblie").value;
+    // const sts = document.getElementById("sts").value;
+    // const state = document.getElementById("state").value;
+    // const gender = document.querySelector('input[name="gender"]:checked');
+    // const email = document.getElementById("email").value.trim();
+    // const password = document.getElementById("password").value;
+    // const confirmPassword = document.getElementById("confirmPassword").value;
+    // const terms = document.getElementById("terms").checked;
+    // //for Error message //
+    // const errorMessage = document.getElementById("errorMessage");
+
+    // //regular expression//
+    // const firstNameRegex = /^[A-Z;a-z]+$/;
+    // const lastNameRegex = /^[A-Za-z]+$/;
+    // const mobileRegex = /^[0-9]{10}$/;
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // const PasswordRegex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    // //start conditions//
+
+    // if (!firstNameRegex.test(firstName)) {
+    //   document.getElementById("errorMessage").textContent = "Enter name only in latter";
+    //   event.preventDefault();
+    //   return;
+    // }
+
+    // if (!lastNameRegex.test(lastName)) {
+    //   document.getElementById("errorMessage").textContent = "Enter last name only in latter";
+    //   event.preventDefault();
+    //   return;
+    // }
+
+    // if (!mobile.test(mobile)) {
+    //   document.getElementById("errorMessage").textContent = "Enter mobile number only";
+    //   event.preventDefault();
+    //   return;
+    // }
+
+    // if (sts !== "") {
+    //   document.getElementById("errormessage").textContent = "select state";
+    //   event.preventDefault();
+    //   return;
+    // }
+
+    // if (state !== "") {
+    //   document.getElementById("errorMessage").textContent = "select city";
+    //   event.preventDefault();
+    //   return;
+    // }
+
+    // if (!gender) {
+    //   document.getElementById("errorMessage").textContent = "select gender"
+    //   event.preventDefault();
+    //   return;
+    // }
+
+    // if (!emailRegex.test(email)) {
+    //   docutment.getElementById("errorMessage").textContent = "Enter the right email"
+    //   event.preventDefault();
+    //   return;
+    // }
+
+    // if (!PasswordRegex.test(password)) {
+    //   document.getElementById("errorMessage").textContent = "Enter password atlist 1 captal latter 1 small lettar and 1 special charectare"
+    //   event.preventDefault();
+    //   result;
+    // }
+    // if (password !== confirmPassword) {
+    //   document.getElementById('errorMessage').textContent = "password does not match"
+    //   event.preventDefault();
+    //   return;
+    // }
+
+    // if (!terms) {
+    //   document.getElementById("errorMessage").textContent = "please select the turms & condition"
+    //   event.preventDefault();
+    //   return;
+    // }
+
+
+    // alert("Form summited successfully!");
+
+
+    // });
+    function validateFirstNameinput() {
+      const firstName = document.getElementById("firstName").value.trim();
+      const errorMessage = document.getElementById("errorMessage");
+      const firstNameRegex = /^[A-Z;a-z]+$/;
+      if (!firstNameRegex.test(firstName)) {
+        errorMessage.textContent = "only in capital latter";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+      alert("summited");
+      return true;
+
+    }
+
+    function validatelastnameinput() {
+      const lastName = document.getElementById("lastName").value.trim();
+      const errorMessage = document.getElementById('errorMessage');
+      const lastNameRegex = /^[A-Z;a-z]+$/;
+
+      if (!lastNameRegex.test(lastName)) {
+        errorMessage.textContent = "only capital latter";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+      alert("submited");
+      return true;
+
+    }
+
+    function validatemobileinput() {
+      const mobile = document.getElementById("mobile").value.trim();
+      const errorMessage = document.getElementById("errorMessage");
+      const mobileRegex = /^[0-9]{10}$/;
+
+      if (!mobileRegex.test(firstName)) {
+        errorMessage.textContent = "enter 10 digit number";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+      alert("submited");
+      return true;
+    }
+
+    function validatestsselect() {
+      const sts = document.getElementById("sts").value.trim();
+      const errorMessage = document.getElementById("errorMessage");
+
+      if (!sts) {
+        errorMessage.textContent = "select the state";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+      alert("submited");
+      return true;
+    }
+
+    function validatestateselect() {
+
+      const state = document.getElementById("state").value.trim;
+      const errorMessage = document.getElementById("errorMessage");
+
+      if (!state) {
+        errorMessage.textContent = "select city";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+      alert("submited");
+      return true;
+    }
+
+    function validategender(){
+      const gender = document.querySelector('input(name="gender").checked');
+      const errorMessage = document.getElementById("errorMessage");
+
+      if (!gender) {
+        errorMessage.textContent = "select gender";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+      alert("submited");
+      return true;
+
+    }
+
+    function validateemail() {
+      const email =document.getElementById("email").value.trim;
+      const errorMessage =document.getElementById("errorMessage");
+      const emailRegex =/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        errorMessage.textContent = "Enter proper email Id";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+      alert("submited");
+      return true;
+    }
+
+    function validatepassword() {
+      const password = document.getElementById("password").value.trim;
+      const errorMessage = document.getElementById("errorMessage");
+      const PasswordRegex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
+      if (!PasswordRegex.test(password)) {
+        errorMessage.textContent = "Enter a valid password";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+
+      alert("submited");
+      return true;
+    }
+
+    function validateconfirmpassword() {
+
+      const confirmPassword = doctument.getElementById("confirmPassword").value.trim;
+      const errorMessage = document.getElementById("errorMessage");
+
+      if (password !== confirmPassword) {
+        errorMessage.textContent = "password does not match";
+        return false;
+      } else {
+        errorMessage.textContent = "";
+        return true;
+      }
+
+    }
+
+    function validateterms(){
+      const terms=document.getElementById("terms");
+      const errorMessage=document.getElementById("errorMessage");
+
+      if(!terms){
+        errorMessage.textContent="compalsery select turm and condition";
+        return false;
+      }else{
+        errorMessage.textContent="";
+        return true;
+      }
+      alert("submited");
+      return true;
+    }
+
+
+  </script>
+
+  <!-- <form id="formvalidation" class="mt-5 py-5 offset-md-5" style="width:20%;">
+    <label for="tel">mobile</label>
+  <input type="tel" class="form-control" id="mobile" name="mobile" onchange="return validatemobileinput()" >
+  <button type="submit">submit</button>
+  <p id="errorMessage" style="color: red;"></p>
+  </form> -->
+</body>
+
+</html>
